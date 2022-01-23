@@ -1,7 +1,7 @@
 name: Update PlantUML
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 0 1 * *"
   workflow_dispatch:
 
 jobs:
@@ -55,6 +55,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: holowinski/plantuml:latest, holowinski/plantuml:${{ steps.plantuml.outputs.tag }}
+          tags: timonback/plantuml:latest, timonback/plantuml:${{ steps.plantuml.outputs.tag }}
           build-args: |
             PLANTUML_VERSION=${{ steps.plantuml.outputs.tag }}
